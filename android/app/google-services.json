@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "936702908859",
+    "firebase_url": "https://demofrankie.firebaseio.com",
+    "project_id": "demofrankie",
+    "storage_bucket": "demofrankie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936702908859:android:1ea27ee03e23072c",
+        "android_client_info": {
+          "package_name": "com.frankie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936702908859-3k5nr2jdpqlgnhmls2ehf189gdh1tocu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSp560ysf3WSe51MKLyPgYbVZ12LWWCK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936702908859-3k5nr2jdpqlgnhmls2ehf189gdh1tocu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

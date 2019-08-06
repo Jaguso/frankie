@@ -8,7 +8,9 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-// import firebase from 'react-native-firebase';
+import firebase from 'react-native-firebase';
+
+import Geolocation from './src/components/Geolocation';
 
 
 const instructions = Platform.select({
@@ -20,24 +22,30 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <Geolocation/>
       </View>
     );
   }
 
-  // async componentDidMount() {
-  //   this.checkPermission();
-  //   this.createNotificationListeners(); //add this line
-  //    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
-  //       // Process your token as required
-  //       console.log("ANUJ",fcmToken);
-  //   });
-  // }
+  async componentDidMount() {
+    this.checkPermission();
+    this.createNotificationListeners(); //add this line
+     this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
+        // Process your token as required
+        console.log("ANUJ",fcmToken);
+    });
+  }
   
 
 
