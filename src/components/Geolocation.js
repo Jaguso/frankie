@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-// import { requestLocationPermission } from '../helpers/locationPermission';
+import { requestLocationPermission } from '../helpers/locationPermission';
 
 
 class Geolocation extends Component {
@@ -12,20 +12,9 @@ class Geolocation extends Component {
     this.findCoordinates = this.findCoordinates.bind(this)
   }
 
-  // componentDidMount() {
-  //   navigator.geolocation.getCurrentPosition(
-  //     (position) => {
-  //       this.setState({coords: position.coords})
-  //     },
-  //     (error)  => {
-  //       console.warn(JSON.stringify(error))
-  //     }
-  //   )
-  // }
-
-  // async componentDidMount() {
-  //   await requestLocationPermission()
-  // }
+  async componentDidMount() {
+    await requestLocationPermission()
+  }
 
   findCoordinates() {
     navigator.geolocation.getCurrentPosition(
