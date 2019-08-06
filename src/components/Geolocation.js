@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+// import { requestLocationPermission } from '../helpers/locationPermission';
+
 
 class Geolocation extends Component {
   constructor() {
@@ -7,16 +9,33 @@ class Geolocation extends Component {
     this.state = {
       coords: {latitude: 0, longitude: 0}
     }
+    this.findCoordinates = this.findCoordinates.bind(this)
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       this.setState({coords: position.coords})
+  //     },
+  //     (error)  => {
+  //       console.warn(JSON.stringify(error))
+  //     }
+  //   )
+  // }
+
+  // async componentDidMount() {
+  //   await requestLocationPermission()
+  // }
+
+  findCoordinates() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({coords: position.coords})
       },
       (error)  => {
         console.warn(JSON.stringify(error))
-      }
+      },
+      { enableHighAccuracy: false }
     )
   }
 
@@ -25,7 +44,9 @@ class Geolocation extends Component {
     return (
       <View>
         <Text>Coordenadas: {this.state.coords.latitude}, {this.state.coords.longitude}</Text>
-        
+        <TouchableOpacity onPress={this.findCoordinates}>
+          <Text>Find my coords</Text>
+        </TouchableOpacity>
       </View>
     );
   }
