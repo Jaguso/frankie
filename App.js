@@ -12,6 +12,9 @@ import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-nati
 import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
 
+import Home from './src/components/Home';
+import Something from './src/components/Something';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -29,8 +32,8 @@ export default class App extends Component<Props> {
 
   render() {
       const routes = [
-        {title: 'First Scene', index: 0},
-        {title: 'Second Scene', index: 1},
+        {title: 'First Scene', index: 0, component: Home},
+        {title: 'Second Scene', index: 1, component: Something},
       ];
       return (
         <Navigator
@@ -46,7 +49,8 @@ export default class App extends Component<Props> {
             }}
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
             >
-            <Text>Hello {route.title}!</Text>
+            <route.component/>
+            {/* <Text>Hello {route.title}!</Text> */}
             </TouchableHighlight>
           }
           // style={{padding: 100}}
