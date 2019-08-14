@@ -1,0 +1,6 @@
+framework module Pods_frankie {
+  umbrella header "Pods-frankie-umbrella.h"
+
+  export *
+  module * { export * }
+}

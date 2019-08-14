@@ -1,0 +1,6 @@
+framework module Pods_frankie_tvOS {
+  umbrella header "Pods-frankie-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,9 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import firebase from 'react-native-firebase';
+import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
+import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
 
 
@@ -28,13 +28,46 @@ export default class App extends Component<Props> {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Geolocation/>
-      </View>
+      const routes = [
+        {title: 'First Scene', index: 0},
+        {title: 'Second Scene', index: 1},
+      ];
+      return (
+        <Navigator
+          initialRoute={routes[0]}
+          initialRouteStack={routes}
+          renderScene={(route, navigator) =>
+            <TouchableHighlight onPress={() => {
+              if (route.index === 0) {
+                navigator.push(routes[1]);
+              } else {
+                navigator.pop();
+              }
+            }}
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+            >
+            <Text>Hello {route.title}!</Text>
+            </TouchableHighlight>
+          }
+          // style={{padding: 100}}
+        />
+      
+      // <Navigator
+      //   initialRoute={{title: 'Awesome Scene', index: 0}}
+      //   renderScene={(route, navigator) => <Text>Hello {route.title}!</Text>}
+      //   style={{padding: 10}}
+      // />
+      // <View style={styles.container}>
+      //   <Text style={styles.welcome}>Welcome to React Native!</Text>
+      //   <Text style={styles.instructions}>To get started, edit App.js</Text>
+      //   <Text style={styles.instructions}>{instructions}</Text>
+      //   <Geolocation/>
+      //   <Navigator
+      //     initialRoute={{ title: 'Some Scene', index: 0 }}
+      //     renderScene={(route, navigator) => <Text>Hello {route.title}</Text>}
+          
+      //   />
+      // </View>
     );
   }
 

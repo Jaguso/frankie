@@ -1,0 +1,6 @@
+framework module Pods_frankieTests {
+  umbrella header "Pods-frankieTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
