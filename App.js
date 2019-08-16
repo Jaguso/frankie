@@ -31,31 +31,34 @@ export default class App extends Component<Props> {
   }
 
   render() {
-    const routes = [
-      {title: 'First Scene', index: 0, component: Home},
-      {title: 'Second Scene', index: 1, component: Something},
-      {title: 'Second Scene', index: 1, component: Geolocation},
-    ];
+    // const routes = [
+    //   {title: 'First Scene', index: 0, component: Home},
+    //   {title: 'Second Scene', index: 1, component: Something},
+    //   {title: 'Second Scene', index: 1, component: Geolocation},
+    // ];
     return (
-      <Navigator
-        initialRoute={routes[0]}
-        initialRouteStack={routes}
-        renderScene={(route, navigator) =>
-          <TouchableOpacity onPress={() => {
-            if (route.index === 0) {
-              navigator.push(routes[1]);
-            } else if (route.index === 1) {
-              navigator.push(routes[2])
-            } else {
-              navigator.pop()
-            }
-          }}
-          style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-          >
-          <route.component/>
-          </TouchableOpacity>
-        }
-      />
+      <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
+        <Geolocation />
+      </View>
+      // <Navigator
+      //   initialRoute={routes[0]}
+      //   initialRouteStack={routes}
+      //   renderScene={(route, navigator) =>
+      //     <TouchableOpacity onPress={() => {
+      //       if (route.index === 0) {
+      //         navigator.push(routes[1]);
+      //       } else if (route.index === 1) {
+      //         navigator.push(routes[2])
+      //       } else {
+      //         navigator.pop()
+      //       }
+      //     }}
+      //     style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+      //     >
+      //     <route.component/>
+      //     </TouchableOpacity>
+      //   }
+      // />
     );
   }
   
