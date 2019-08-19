@@ -15,6 +15,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import Home from './src/components/Home';
 import Something from './src/components/Something';
 import ColorBlue from './src/components/ColorBlue';
+import ColorRed from './src/components/ColorRed';
 import Deeper from './src/components/Deeper';
 
 
@@ -46,6 +47,10 @@ class App extends Component<Props> {
           title="Color blue"
           onPress={() => this.props.navigation.navigate('blue')}
         />
+        <Button
+          title="Color red"
+          onPress={() => this.props.navigation.navigate('red')}
+        />
 
       </View>
       
@@ -62,6 +67,7 @@ const AppNavigator = createStackNavigator(
     something: Something,
     coordinates: Geolocation,
     blue: ColorBlue,
+    red: ColorRed,
     deep: Deeper
   },
   {

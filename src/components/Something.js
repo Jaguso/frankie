@@ -12,7 +12,10 @@ class Something extends Component {
         />
         <Button
           title="Go deep"
-          onPress={() => this.props.navigation.navigate('deep')}
+          onPress={() => this.props.navigation.navigate('deep', {
+            price: 88,
+            quantity: 9
+          })}
         />
       </View>
     );
