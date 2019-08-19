@@ -15,6 +15,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import Home from './src/components/Home';
 import Something from './src/components/Something';
 import ColorBlue from './src/components/ColorBlue';
+import Deeper from './src/components/Deeper';
 
 
 const instructions = Platform.select({
@@ -60,7 +61,8 @@ const AppNavigator = createStackNavigator(
     },
     something: Something,
     coordinates: Geolocation,
-    blue: ColorBlue
+    blue: ColorBlue,
+    deep: Deeper
   },
   {
     initialRouteName: "Home"

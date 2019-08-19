@@ -10,6 +10,10 @@ class Something extends Component {
           title="Go to this component again"
           onPress={() => this.props.navigation.push('something')} 
         />
+        <Button
+          title="Go deep"
+          onPress={() => this.props.navigation.navigate('deep')}
+        />
       </View>
     );
   }
