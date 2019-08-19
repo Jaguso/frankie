@@ -8,9 +8,9 @@
 
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, TouchableHighlight, TouchableOpacity } from 'react-native';
-
 import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
+import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import Home from './src/components/Home';
 import Something from './src/components/Something';
@@ -24,63 +24,27 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
 
   constructor(props) {
     super(props)
   }
 
   render() {
-    // const routes = [
-    //   {title: 'First Scene', index: 0, component: Home},
-    //   {title: 'Second Scene', index: 1, component: Something},
-    //   {title: 'Second Scene', index: 1, component: Geolocation},
-    // ];
     return (
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
         <Geolocation />
       </View>
-      // <Navigator
-      //   initialRoute={routes[0]}
-      //   initialRouteStack={routes}
-      //   renderScene={(route, navigator) =>
-      //     <TouchableOpacity onPress={() => {
-      //       if (route.index === 0) {
-      //         navigator.push(routes[1]);
-      //       } else if (route.index === 1) {
-      //         navigator.push(routes[2])
-      //       } else {
-      //         navigator.pop()
-      //       }
-      //     }}
-      //     style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-      //     >
-      //     <route.component/>
-      //     </TouchableOpacity>
-      //   }
-      // />
+      
     );
   }
-  
-
-
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: App
+  }
+})
+
+export default createAppContainer(AppNavigator);
