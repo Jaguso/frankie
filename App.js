@@ -14,6 +14,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import Home from './src/components/Home';
 import Something from './src/components/Something';
+import ColorBlue from './src/components/ColorBlue';
 
 
 const instructions = Platform.select({
@@ -40,6 +41,10 @@ class App extends Component<Props> {
           title="Go to Coordinates"
           onPress={() => this.props.navigation.navigate('coordinates')}
         />
+        <Button
+          title="Color blue"
+          onPress={() => this.props.navigation.navigate('blue')}
+        />
 
       </View>
       
@@ -47,14 +52,15 @@ class App extends Component<Props> {
   }
 }
 
-
+// Syntax: route-name: component-name
 const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: App,
     },
     Something: Something,
-    coordinates: Geolocation
+    coordinates: Geolocation,
+    blue: ColorBlue
   },
   {
     initialRouteName: "Home"
