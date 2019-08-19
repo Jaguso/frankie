@@ -31,7 +31,7 @@ class Geolocation extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Coordenadas: {this.state.coords.latitude}, {this.state.coords.longitude}</Text>
         <TouchableOpacity onPress={this.findCoordinates}>
           <Text>Find my coords</Text>

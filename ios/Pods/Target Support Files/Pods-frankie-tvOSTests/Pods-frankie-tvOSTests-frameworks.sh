@@ -164,11 +164,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNReanimated/RNReanimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/yoga/yoga.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNReanimated/RNReanimated.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/yoga/yoga.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

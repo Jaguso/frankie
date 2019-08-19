@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import { Platform, StyleSheet, Text, View, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
 import { createAppContainer, createStackNavigator } from 'react-navigation'
@@ -25,7 +25,6 @@ const instructions = Platform.select({
 
 type Props = {};
 class App extends Component<Props> {
-
   constructor(props) {
     super(props)
   }
@@ -33,7 +32,15 @@ class App extends Component<Props> {
   render() {
     return (
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-        <Geolocation />
+        <Button 
+          title="Go to Something"
+          onPress={() => this.props.navigation.navigate('Something')} 
+        /> 
+        <Button
+          title="Go to Coordinates"
+          onPress={() => this.props.navigation.navigate('coordinates')}
+        />
+
       </View>
       
     );
@@ -41,10 +48,17 @@ class App extends Component<Props> {
 }
 
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: App
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: App,
+    },
+    Something: Something,
+    coordinates: Geolocation
+  },
+  {
+    initialRouteName: "Home"
   }
-})
+)
 
 export default createAppContainer(AppNavigator);
