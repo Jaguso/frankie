@@ -35,7 +35,7 @@ class App extends Component<Props> {
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
         <Button 
           title="Go to Something"
-          onPress={() => this.props.navigation.navigate('Something')} 
+          onPress={() => this.props.navigation.navigate('something')} 
         /> 
         <Button
           title="Go to Coordinates"
@@ -58,7 +58,7 @@ const AppNavigator = createStackNavigator(
     Home: {
       screen: App,
     },
-    Something: Something,
+    something: Something,
     coordinates: Geolocation,
     blue: ColorBlue
   },
