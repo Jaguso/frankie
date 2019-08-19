@@ -17,6 +17,8 @@ class Deeper extends Component {
         <View>
           <Text>Price is {price}</Text>
           <Text>How many: {quantity}</Text>
+          <Text>price: {this.props.navigation.state.params.price}</Text>
+          <Text>quantity: {this.props.navigation.state.params.quantity}</Text>
         </View>
       </View>
     );
