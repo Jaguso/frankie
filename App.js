@@ -32,6 +32,18 @@ class App extends Component<Props> {
     super(props)
   }
 
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: 'blue',
+      height: 200,
+      borderStyle: 'solid',
+      borderColor: 'gray', 
+      borderWidth: 5
+      
+    }
+  };
+
   render() {
     return (
       <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>

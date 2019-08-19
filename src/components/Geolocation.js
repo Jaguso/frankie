@@ -12,6 +12,10 @@ class Geolocation extends Component {
     this.findCoordinates = this.findCoordinates.bind(this)
   }
 
+  static navigationOptions = {
+    title: "Find your coords"
+  }
+
   async componentDidMount() {
     await requestLocationPermission()
   }
