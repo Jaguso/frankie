@@ -17,6 +17,7 @@ import Something from './src/components/Something';
 import ColorBlue from './src/components/ColorBlue';
 import ColorRed from './src/components/ColorRed';
 import Deeper from './src/components/Deeper';
+import Icons from './src/components/Icons';
 
 
 const instructions = Platform.select({
@@ -59,6 +60,10 @@ class App extends Component<Props> {
           title="Color red"
           onPress={() => this.props.navigation.navigate('red')}
         />
+        <Button
+          title="Go to icons"
+          onPress={() => this.props.navigation.navigate('icons')}
+        />
 
       </View>
       
@@ -76,7 +81,8 @@ const AppNavigator = createStackNavigator(
     coordinates: Geolocation,
     blue: ColorBlue,
     red: ColorRed,
-    deep: Deeper
+    deep: Deeper,
+    icons: Icons
   },
   {
     initialRouteName: "Home"
