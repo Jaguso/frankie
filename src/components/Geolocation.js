@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { requestLocationPermission } from '../helpers/locationPermission';
+import BaseComponent from './BaseComponent';
 
 
-class Geolocation extends Component {
+class Geolocation extends BaseComponent {
   constructor() {
     super();
     this.state = {
@@ -16,8 +17,10 @@ class Geolocation extends Component {
     title: "Find your coords"
   }
 
-  async componentDidMount() {
-    await requestLocationPermission()
+  componentDidMount() {
+    requestLocationPermission()
+    console.warn('this is geolocation')
+    // super.componentDidMount()
   }
 
   findCoordinates() {

@@ -36,10 +36,6 @@ class App extends Component<Props> {
     title: 'Home',
     headerStyle: {
       backgroundColor: 'blue',
-      height: 200,
-      borderStyle: 'solid',
-      borderColor: 'gray', 
-      borderWidth: 5
       
     }
   };
