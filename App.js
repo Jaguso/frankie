@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableHighlight, AsyncStorage } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
@@ -43,12 +43,50 @@ class App extends Component<Props> {
     }
   };
 
-  componentDidMount() {
-    const enabled = firebase.messaging().hasPermission();
-    console.warn(enabled);
+  // componentDidMount() {
+  //   const enabled = firebase.messaging().hasPermission();
+  //   console.warn(enabled);
     
-  }
+  // }
 
+  async componentDidMount() {
+    this.checkPermission();
+  }
+  
+    //1
+  async checkPermission() {
+    const enabled = await firebase.messaging().hasPermission();
+    if (enabled) {
+        this.getToken();
+    } else {
+        this.requestPermission();
+    }
+  }
+  
+    //3
+  async getToken() {
+    let fcmToken = await AsyncStorage.getItem('fcmToken');
+    console.warn('fcmtoken >>', fcmToken)
+    if (!fcmToken) {
+        fcmToken = await firebase.messaging().getToken();
+        if (fcmToken) {
+            // user has a device token
+            await AsyncStorage.setItem('fcmToken', fcmToken);
+        }
+    }
+  }
+  
+    //2
+  async requestPermission() {
+    try {
+        await firebase.messaging().requestPermission();
+        // User has authorised
+        this.getToken();
+    } catch (error) {
+        // User has rejected permissions
+        console.log('permission rejected');
+    }
+  }
   
 
   render() {
