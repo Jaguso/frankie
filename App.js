@@ -31,7 +31,8 @@ const instructions = Platform.select({
 type Props = {};
 class App extends Component<Props> {
   constructor(props) {
-    super(props)
+    super(props);
+
   }
 
   static navigationOptions = {
@@ -42,11 +43,13 @@ class App extends Component<Props> {
     }
   };
 
-
   componentDidMount() {
     const enabled = firebase.messaging().hasPermission();
-    console.warn(enabled)
+    console.warn(enabled);
+    
   }
+
+  
 
   render() {
     return (
