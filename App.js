@@ -43,15 +43,10 @@ class App extends Component<Props> {
   };
 
 
-  // componentDidMount() {
-  //   firebase.auth()
-  //     .signInAnonymously()
-  //     .then(credential => {
-  //       if (credential) {
-  //         console.log('default app user ->', credential.user.toJSON());
-  //       }
-  //     });
-  // }
+  componentDidMount() {
+    const enabled = firebase.messaging().hasPermission();
+    console.warn(enabled)
+  }
 
   render() {
     return (
