@@ -10,7 +10,8 @@ import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
 import Geolocation from './src/components/Geolocation';
-import { createAppContainer, createStackNavigator } from 'react-navigation'
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import firebase from 'react-native-firebase';
 
 import Home from './src/components/Home';
 import Something from './src/components/Something';
@@ -40,6 +41,17 @@ class App extends Component<Props> {
       
     }
   };
+
+
+  // componentDidMount() {
+  //   firebase.auth()
+  //     .signInAnonymously()
+  //     .then(credential => {
+  //       if (credential) {
+  //         console.log('default app user ->', credential.user.toJSON());
+  //       }
+  //     });
+  // }
 
   render() {
     return (
