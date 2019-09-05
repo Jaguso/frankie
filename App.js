@@ -43,11 +43,6 @@ class App extends Component<Props> {
     }
   };
 
-  // componentDidMount() {
-  //   const enabled = firebase.messaging().hasPermission();
-  //   console.warn(enabled);
-    
-  // }
 
   async componentDidMount() {
     this.checkPermission();
