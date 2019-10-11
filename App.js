@@ -18,6 +18,7 @@ import ColorBlue from './src/components/ColorBlue';
 import ColorRed from './src/components/ColorRed';
 import Deeper from './src/components/Deeper';
 import Icons from './src/components/Icons';
+import TestForms from './src/components/TestFoms';
 
 
 const instructions = Platform.select({
@@ -64,6 +65,10 @@ class App extends Component<Props> {
           title="Go to icons"
           onPress={() => this.props.navigation.navigate('icons')}
         />
+        <Button
+          title="Go to form"
+          onPress={() => this.props.navigation.navigate('testForms')}
+        />
 
       </View>
       
@@ -82,7 +87,8 @@ const AppNavigator = createStackNavigator(
     blue: ColorBlue,
     red: ColorRed,
     deep: Deeper,
-    icons: Icons
+    icons: Icons,
+    testForms: TestForms
   },
   {
     initialRouteName: "Home"
