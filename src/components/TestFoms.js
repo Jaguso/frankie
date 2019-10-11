@@ -11,6 +11,15 @@ var Person = tcomb.struct({
 });
 
 class TestForms extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userData: {
+        name: 'Juan',
+        lastname: 'Perez'
+      }
+    }
+  }
 
   render() {
     return (
@@ -19,6 +28,7 @@ class TestForms extends Component {
         <Form
           ref="form"
           type={Person}
+          value={this.state.userData}
         />
       </View>
     );
