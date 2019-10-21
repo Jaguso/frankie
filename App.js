@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
-import Geolocation from './src/components/Geolocation';
+import GeolocationComponent from './src/components/Geolocation';
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 
 import Home from './src/components/Home';
@@ -83,7 +83,7 @@ const AppNavigator = createStackNavigator(
       screen: App,
     },
     something: Something,
-    coordinates: Geolocation,
+    coordinates: GeolocationComponent,
     blue: ColorBlue,
     red: ColorRed,
     deep: Deeper,

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { requestLocationPermission } from '../helpers/locationPermission';
 import BaseComponent from './BaseComponent';
+import Geolocation from 'react-native-geolocation-service';
 
 
-class Geolocation extends BaseComponent {
+class GeolocationComponent extends BaseComponent {
   constructor() {
     super();
     this.state = {
@@ -24,7 +25,7 @@ class Geolocation extends BaseComponent {
   }
 
   findCoordinates() {
-    navigator.geolocation.getCurrentPosition(
+    Geolocation.getCurrentPosition(
       (position) => {
         this.setState({coords: position.coords})
       },
@@ -48,4 +49,4 @@ class Geolocation extends BaseComponent {
   }
 }
 
-export default Geolocation;
+export default GeolocationComponent;
